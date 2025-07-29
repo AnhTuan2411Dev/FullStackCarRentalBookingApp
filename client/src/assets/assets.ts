@@ -1,4 +1,4 @@
-// Import statements for assets
+// Các câu lệnh import cho các tài sản
 import logo from "./logo.svg";
 import gmail_logo from "./gmail_logo.svg";
 import facebook_logo from "./facebook_logo.svg";
@@ -42,75 +42,75 @@ import car_image2 from "./car_image2.png";
 import car_image3 from "./car_image3.png";
 import car_image4 from "./car_image4.png";
 
-// Type definitions
-export interface MenuLink {
-    name: string;
-    path: string;
+// Các định nghĩa kiểu dữ liệu
+export interface MenuLink { // Giao diện cho một liên kết trong menu
+    name: string; // Tên hiển thị của liên kết
+    path: string; // Đường dẫn của liên kết
 }
 
-export interface OwnerMenuLink {
-    name: string;
-    path: string;
-    icon: string;
-    coloredIcon: string;
+export interface OwnerMenuLink { // Giao diện cho một liên kết trong menu của chủ sở hữu
+    name: string; // Tên hiển thị của liên kết
+    path: string; // Đường dẫn của liên kết
+    icon: string; // Icon mặc định
+    coloredIcon: string; // Icon khi được chọn (có màu)
 }
 
-export type UserRole = "owner" | "user";
+export type UserRole = "owner" | "user"; // Kiểu vai trò của người dùng
 
-export interface User {
-    _id: string;
-    name: string;
-    email: string;
-    role: UserRole;
-    image: string;
+export interface User { // Giao diện cho đối tượng người dùng
+    _id: string; // ID duy nhất của người dùng
+    name: string; // Tên người dùng
+    email: string; // Email người dùng
+    role: UserRole; // Vai trò của người dùng (chủ sở hữu hoặc người dùng)
+    image: string; // URL ảnh đại diện
 }
 
-export type CarCategory = "SUV" | "Sedan" | "Hatchback" | "Coupe" | "Convertible";
-export type FuelType = "Hybrid" | "Diesel" | "Petrol" | "Electric";
-export type Transmission = "Manual" | "Automatic" | "Semi-Automatic";
+export type CarCategory = "SUV" | "Sedan" | "Hatchback" | "Coupe" | "Convertible"; // Kiểu loại xe
+export type FuelType = "Hybrid" | "Dầu Diesel" | "Xăng" | "Điện"; // Kiểu loại nhiên liệu
+export type Transmission = "Số sàn" | "Tự động" | "Bán tự động"; // Kiểu hộp số
 
-export interface Car {
-    _id: string;
-    owner: string;
-    brand: string;
-    model: string;
-    image: string;
-    year: number;
-    category: CarCategory;
-    seating_capacity: number;
-    fuel_type: FuelType;
-    transmission: Transmission;
-    pricePerDay: number;
-    location: string;
-    description: string;
-    isAvaliable: boolean;
-    createdAt: string;
+export interface Car { // Giao diện cho đối tượng xe
+    _id: string; // ID duy nhất của xe
+    owner: string; // ID của chủ sở hữu
+    brand: string; // Hãng xe
+    model: string; // Mẫu xe
+    image: string; // URL hình ảnh xe
+    year: number; // Năm sản xuất
+    category: CarCategory; // Loại xe
+    seating_capacity: number; // Số chỗ ngồi
+    fuel_type: FuelType; // Loại nhiên liệu
+    transmission: Transmission; // Loại hộp số
+    pricePerDay: number; // Giá thuê mỗi ngày
+    location: string; // Vị trí của xe
+    description: string; // Mô tả chi tiết
+    isAvaliable: boolean; // Trạng thái sẵn có
+    createdAt: string; // Thời gian tạo
 }
 
-export type BookingStatus = "confirmed" | "pending" | "cancelled" | "completed";
+export type BookingStatus = "đã xác nhận" | "đang chờ xử lý" | "đã hủy" | "đã hoàn thành"; // Kiểu trạng thái đặt xe
 
-export interface Booking {
-    _id: string;
-    car: Car;
-    user: string;
-    owner: string;
-    pickupDate: string;
-    returnDate: string;
-    status: BookingStatus;
-    price: number;
-    createdAt: string;
+export interface Booking { // Giao diện cho đối tượng đặt xe
+    _id: string; // ID duy nhất của việc đặt xe
+    car: Car; // Đối tượng xe được đặt
+    user: string; // ID của người dùng đặt xe
+    owner: string; // ID của chủ sở hữu xe
+    pickupDate: string; // Ngày nhận xe
+    returnDate: string; // Ngày trả xe
+    status: BookingStatus; // Trạng thái của việc đặt xe
+    price: number; // Tổng giá
+    createdAt: string; // Thời gian tạo
 }
 
-export interface DashboardData {
-    totalCars: number;
-    totalBookings: number;
-    pendingBookings: number;
-    completedBookings: number;
-    recentBookings: Booking[];
-    monthlyRevenue: number;
+export interface DashboardData { // Giao diện cho dữ liệu trên bảng điều khiển của chủ sở hữu
+    totalCars: number; // Tổng số xe
+    totalBookings: number; // Tổng số lượt đặt xe
+    pendingBookings: number; // Số lượt đặt xe đang chờ xử lý
+    completedBookings: number; // Số lượt đặt xe đã hoàn thành
+    recentBookings: Booking[]; // Các lượt đặt xe gần đây
+    monthlyRevenue: number; // Doanh thu hàng tháng
 }
 
-export interface Assets {
+export interface Assets { // Giao diện tập hợp tất cả các tài sản (hình ảnh, icon)
     logo: string;
     gmail_logo: string;
     facebook_logo: string;
@@ -155,9 +155,10 @@ export interface Assets {
     car_image4: string;
 }
 
-// Constants
-export const cityList: string[] = ['New York', 'Los Angeles', 'Houston', 'Chicago'];
+// Các hằng số
+export const cityList: string[] = ['Hà Nội', 'TP. Hồ Chí Minh', 'Đà Nẵng', 'Hải Phòng']; // Danh sách các thành phố
 
+// Đối tượng chứa tất cả các tài sản đã được import để dễ dàng truy cập
 export const assets: Assets = {
     logo,
     gmail_logo,
@@ -203,27 +204,31 @@ export const assets: Assets = {
     car_image4
 };
 
+// Danh sách các liên kết trong menu cho người dùng thông thường
 export const menuLinks: MenuLink[] = [
-    { name: "Home", path: "/" },
-    { name: "Cars", path: "/cars" },
-    { name: "My Bookings", path: "/my-bookings" },
+    { name: "Trang chủ", path: "/" },
+    { name: "Các loại xe", path: "/cars" },
+    { name: "Lịch đặt của tôi", path: "/my-bookings" },
 ];
 
+// Danh sách các liên kết trong menu dành cho chủ sở hữu xe
 export const ownerMenuLinks: OwnerMenuLink[] = [
-    { name: "Dashboard", path: "/owner", icon: dashboardIcon, coloredIcon: dashboardIconColored },
-    { name: "Add car", path: "/owner/add-car", icon: addIcon, coloredIcon: addIconColored },
-    { name: "Manage Cars", path: "/owner/manage-cars", icon: carIcon, coloredIcon: carIconColored },
-    { name: "Manage Bookings", path: "/owner/manage-bookings", icon: listIcon, coloredIcon: listIconColored },
+    { name: "Bảng điều khiển", path: "/owner", icon: dashboardIcon, coloredIcon: dashboardIconColored },
+    { name: "Thêm xe", path: "/owner/add-car", icon: addIcon, coloredIcon: addIconColored },
+    { name: "Quản lý xe", path: "/owner/manage-cars", icon: carIcon, coloredIcon: carIconColored },
+    { name: "Quản lý lịch đặt", path: "/owner/manage-bookings", icon: listIcon, coloredIcon: listIconColored },
 ];
 
+// Dữ liệu người dùng mẫu cho mục đích thử nghiệm và phát triển
 export const dummyUserData: User = {
     "_id": "6847f7cab3d8daecdb517095",
-    "name": "GreatStack",
+    "name": "Kilo Code",
     "email": "admin@example.com",
     "role": "owner",
     "image": user_profile,
 };
 
+// Dữ liệu xe mẫu cho mục đích thử nghiệm và phát triển
 export const dummyCarData: Car[] = [
     {
         "_id": "67ff5bc069c03d4e45f30b77",
@@ -235,10 +240,10 @@ export const dummyCarData: Car[] = [
         "category": "SUV",
         "seating_capacity": 4,
         "fuel_type": "Hybrid",
-        "transmission": "Semi-Automatic",
+        "transmission": "Bán tự động",
         "pricePerDay": 300,
-        "location": "New York",
-        "description": "The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.",
+        "location": "Hà Nội",
+        "description": "BMW X5 là một chiếc SUV hạng sang cỡ trung do BMW sản xuất. X5 ra mắt lần đầu tiên vào năm 1999 và là chiếc SUV đầu tiên do BMW sản xuất.",
         "isAvaliable": true,
         "createdAt": "2025-04-16T07:26:56.215Z",
     },
@@ -251,11 +256,11 @@ export const dummyCarData: Car[] = [
         "year": 2021,
         "category": "Sedan",
         "seating_capacity": 4,
-        "fuel_type": "Diesel",
-        "transmission": "Manual",
+        "fuel_type": "Dầu Diesel",
+        "transmission": "Số sàn",
         "pricePerDay": 130,
-        "location": "Chicago",
-        "description": "The Toyota Corolla is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
+        "location": "Đà Nẵng",
+        "description": "Toyota Corolla là một chiếc sedan hạng sang cỡ trung do Toyota sản xuất. Corolla ra mắt lần đầu vào năm 2008 và là chiếc sedan đầu tiên do Toyota sản xuất.",
         "isAvaliable": true,
         "createdAt": "2025-04-16T08:33:57.993Z",
     },
@@ -269,10 +274,10 @@ export const dummyCarData: Car[] = [
         "category": "SUV",
         "seating_capacity": 4,
         "fuel_type": "Hybrid",
-        "transmission": "Automatic",
+        "transmission": "Tự động",
         "pricePerDay": 200,
-        "location": "Los Angeles",
-        "description": "The Jeep Wrangler is a mid-size luxury SUV produced by Jeep. The Wrangler made its debut in 2003 as the first SUV ever produced by Jeep.",
+        "location": "TP. Hồ Chí Minh",
+        "description": "Jeep Wrangler là một chiếc SUV hạng sang cỡ trung do Jeep sản xuất. Wrangler ra mắt lần đầu vào năm 2003 và là chiếc SUV đầu tiên do Jeep sản xuất.",
         "isAvaliable": true,
         "createdAt": "2025-04-16T08:34:39.592Z",
     },
@@ -285,16 +290,17 @@ export const dummyCarData: Car[] = [
         "year": 2022,
         "category": "Sedan",
         "seating_capacity": 2,
-        "fuel_type": "Diesel",
-        "transmission": "Semi-Automatic",
+        "fuel_type": "Dầu Diesel",
+        "transmission": "Bán tự động",
         "pricePerDay": 209,
-        "location": "Houston",
-        "description": "This is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
+        "location": "Hải Phòng",
+        "description": "Đây là một chiếc sedan hạng sang cỡ trung do Toyota sản xuất. Corolla ra mắt lần đầu vào năm 2008 và là chiếc sedan đầu tiên do Toyota sản xuất.",
         "isAvaliable": true,
         "createdAt": "2025-04-17T06:15:47.318Z",
     }
 ];
 
+// Dữ liệu đặt xe mẫu cho mục đích thử nghiệm và phát triển
 export const dummyMyBookingsData: Booking[] = [
     {
         "_id": "68482bcc98eb9722b7751f70",
@@ -303,7 +309,7 @@ export const dummyMyBookingsData: Booking[] = [
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-13T00:00:00.000Z",
         "returnDate": "2025-06-14T00:00:00.000Z",
-        "status": "confirmed",
+        "status": "đã xác nhận",
         "price": 440,
         "createdAt": "2025-06-10T12:57:48.244Z",
     },
@@ -314,7 +320,7 @@ export const dummyMyBookingsData: Booking[] = [
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-12T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "pending",
+        "status": "đang chờ xử lý",
         "price": 130,
         "createdAt": "2025-06-10T12:57:25.613Z",
     },
@@ -325,7 +331,7 @@ export const dummyMyBookingsData: Booking[] = [
         "owner": "67fe3467ed8a8fe17d0ba6e2",
         "pickupDate": "2025-06-11T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "pending",
+        "status": "đang chờ xử lý",
         "price": 600,
         "createdAt": "2025-06-10T09:55:06.379Z",
     },
@@ -336,12 +342,13 @@ export const dummyMyBookingsData: Booking[] = [
         "owner": "6847f7cab3d8daecdb517095",
         "pickupDate": "2025-06-11T00:00:00.000Z",
         "returnDate": "2025-06-12T00:00:00.000Z",
-        "status": "confirmed",
+        "status": "đã xác nhận",
         "price": 440,
         "createdAt": "2025-06-10T09:44:25.410Z",
     }
 ];
 
+// Dữ liệu bảng điều khiển mẫu cho mục đích thử nghiệm và phát triển
 export const dummyDashboardData: DashboardData = {
     "totalCars": 4,
     "totalBookings": 2,
